@@ -12,12 +12,11 @@ class Affirmation(MycroftSkill):
     @intent_file_handler('create.intent')
     def handle_createAffirmation(self, message):
         affirmation = self.get_response('create')
-        self.speak("affirmation")
-        acknowledge()
-     #   file = open("./locale/en-us/affirmation.dialog", "a")
-      #  file.write(affirmation + "\n")
-       # file.close()
-
+        
+        file = open("./locale/en-us/affirmation.dialog", "a")
+        file.write(affirmation + "\n")
+        file.close()
+        self.speak("done")
 
 def create_skill():
     return Affirmation()
